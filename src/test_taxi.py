@@ -1,6 +1,6 @@
 import numpy as np
 import gym
-import pygame
+# import pygame
 import random
 
 # create Taxi environment
@@ -39,7 +39,11 @@ for idx in range(num_episodes):
     for s in range(max_steps):
 
         action = np.argmax(qtable[state,:])
+
+        q_est[state, action] += 1
+
         new_state, reward, done, info = env.step(action)
+
         rewards += reward
         # env.render(mode='human')
         state = new_state
