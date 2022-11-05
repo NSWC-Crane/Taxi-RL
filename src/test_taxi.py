@@ -14,8 +14,8 @@ state_size = env.observation_space.n
 action_size = env.action_space.n
 
 # testing variables
-num_episodes = 2000
-max_steps = 100  # per episode
+num_episodes = state_size*100
+max_steps = 200  # per episode
 
 # load in teh saved qtable from the training
 qtable = np.load("../data/taxi_qtable.npy")
@@ -53,6 +53,10 @@ for idx in range(num_episodes):
             print("  Score: {}".format(rewards))
             break
 
+
+bp = 1
+
+np.save("../data/taxi_q_est.npy", q_est, allow_pickle=False, fix_imports=True)
 
 env.close()
 
