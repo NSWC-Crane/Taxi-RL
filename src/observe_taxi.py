@@ -2,6 +2,7 @@ import numpy as np
 import gym
 # import pygame
 import random
+import math
 
 # create Taxi environment
 env = gym.make('Taxi-v3')
@@ -14,7 +15,7 @@ state_size = env.observation_space.n
 action_size = env.action_space.n
 
 # testing variables
-num_episodes = state_size*100
+num_episodes = int(math.floor(state_size*0.002))
 max_steps = 200  # per episode
 
 # load in teh saved qtable from the training
@@ -56,7 +57,7 @@ for idx in range(num_episodes):
 
 bp = 1
 
-np.save("../data/taxi_q_est.npy", q_est, allow_pickle=False, fix_imports=True)
+np.save("../data/taxi_q_est_{}.npy".format(num_episodes), q_est, allow_pickle=False, fix_imports=True)
 
 env.close()
 

@@ -14,13 +14,13 @@ state_size = env.observation_space.n
 action_size = env.action_space.n
 
 # testing variables
-num_episodes = state_size*100
+num_episodes = state_size*20
 max_steps = 200  # per episode
 
 # load in teh saved qtable from the training
 qtable = np.load("../data/taxi_qtable.npy")
 
-q_est = np.load("../data/taxi_q_est.npy")
+q_est = np.load("../data/taxi_q_est_1.npy")
 
 # Challenge:
 #  1. we don't know the state numbering
